@@ -1,0 +1,4 @@
+*.go
+.vscode
+UTestALL_build
+build
