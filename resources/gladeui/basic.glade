@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <object class="GtkWindow" id="main_window">
+    <property name="can-focus">0</property>
+    <property name="child">
+      <object class="GtkBox" id="mainwindow_box1">
+        <property name="can-focus">0</property>
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkPaned" id="mainwindow_paned1">
+            <property name="resize-start-child">0</property>
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkAspectFrame" id="mainwindow_aspectframe1">
+                <property name="can-focus">0</property>
+                <property name="child">
+                  <object class="GtkGLArea" id="drawarea">
+                    <property name="can-focus">0</property>
+                  </object>
+                </property>
+              </object>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+        <child>
+          <object class="GtkBox" id="mainwindow_subbox1">
+            <property name="can-focus">0</property>
+            <child>
+              <object class="GtkButton" id="button1">
+                <property name="label" translatable="yes">button1</property>
+                <property name="name">button_1</property>
+                <property name="receives-default">1</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="button2">
+                <property name="label" translatable="yes">button2</property>
+                <property name="name">button_2</property>
+                <property name="receives-default">1</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="button3">
+                <property name="label" translatable="yes">button3</property>
+                <property name="name">button_3</property>
+                <property name="receives-default">1</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkSpinButton" id="mainwindow_subspinbutton1">
+                <property name="hexpand">1</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </property>
+  </object>
+</interface>

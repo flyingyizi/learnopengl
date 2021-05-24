@@ -47,7 +47,7 @@ include_directories(${EIGEN3_INCLUDE_DIRS})
 find_package(PkgConfig REQUIRED) 
 # pkg_search_module(EGL REQUIRED egl)
 target_link_libraries(geo PRIVATE 
-        dl
+        # dl
         pthread             #needed by gtest
         ${EGL_LIBRARIES}   )
          

@@ -113,5 +113,13 @@ glEnableVertexAttribArray(2);
 ![纹理坐标演示](https://learnopengl-cn.github.io/img/01/06/tex_coords.png)
 
 
+## 工具类 myglutil.hpp
 
+该工具类对shader创建，顶点数据/纹理数据加载进行了封装，并且通过assimp库的底层支持，能支持第三方的顶点数据。 使用方法见该头文件中的说明。
+
+同时src2中是一个 基于”gtkmm4 + myglutil.hpp“的使用例子。
+
+## 工具类 myeglutil.hpp
+
+使用egl时，比较麻烦的是对各种平台的EGLNativeWindowType，EGLNativeDisplayType获取。这个工具针对win32/linux平台提供了code sample，并且提供了创建上下文的封装。
 

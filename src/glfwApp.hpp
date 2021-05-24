@@ -46,12 +46,6 @@ protected:
     static myGlfwApp_t *s_app;
     GLFWwindow *m_pWindow;
 
-#ifdef _WIN32
-    ULONGLONG m_appStartTime;
-#else
-    struct timeval m_appStartTime;
-#endif
-
     static void window_size_callback(GLFWwindow *window, int width, int height)
     {
         myGlfwApp_t *pThis = (myGlfwApp_t *)glfwGetWindowUserPointer(window);
@@ -67,26 +61,12 @@ protected:
         myGlfwApp_t *pThis = (myGlfwApp_t *)glfwGetWindowUserPointer(window);
         pThis->OnChar(codepoint);
     };
-    unsigned int app_time()
-    {
-#ifdef _WIN32
-        ULONGLONG currentTime = ::GetTickCount64();
-        return (unsigned int)(currentTime - m_appStartTime);
-#else
-        return 0;
-#endif
-    };
 
 public:
     void MainLoop(void);
 
     virtual void Initialize(const char *title = nullptr, int win_width = 800, int win_heigh = 600, int opengl_major = 3, int opengl_minor = 3)
     {
-#ifdef _WIN32
-        m_appStartTime = ::GetTickCount64();
-#else
-        gettimeofday(&m_appStartTime, nullptr);
-#endif
         if (glfwInit() != GLFW_TRUE)
         {
             std::cout << "glfwInit fail" << std::endl;
@@ -164,11 +144,11 @@ public:
     }                         \
     ;
 
-#ifdef _WIN32
-#define MAIN_DECL int CALLBACK WinMain(_In_ HINSTANCE hInstance, _In_ HINSTANCE hPrevInstance, _In_ LPSTR lpCmdLine, _In_ int nCmdShow)
-#else
+// #ifdef _WIN32
+// #define MAIN_DECL int CALLBACK WinMain(_In_ HINSTANCE hInstance, _In_ HINSTANCE hPrevInstance, _In_ LPSTR lpCmdLine, _In_ int nCmdShow)
+// #else
 #define MAIN_DECL int main(int argc, char **argv)
-#endif
+// #endif
 
 #define DEFINE_APP(appclass, title, win_width, win_heigh, opengl_major, opengl_minor) \
     myGlfwApp_t *myGlfwApp_t::s_app;                                                  \
